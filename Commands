@@ -1,0 +1,9 @@
+
+ng g m component/library/
+ng g c component/library/libraryManagement
+ng g c component/library/addbook
+ng g c component/library/listbooks
+ng g c component/library/editbook
+ng g c component/library/viewbook
+
+
