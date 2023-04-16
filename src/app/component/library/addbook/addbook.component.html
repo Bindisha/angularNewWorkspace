@@ -1,1 +1,64 @@
-<p>addbook works!</p>
+
+<div class="container">
+  <mat-form-field appearance="fill">
+            <mat-label>Book Name</mat-label>
+            <input matInput maxlength="15" inputmode="tel" placeholder="Type name" formControlName="name" #nameInput>
+            
+  </mat-form-field>
+       </div>
+       <div class="container">
+        <mat-form-field appearance="fill">
+          <mat-label>Author Name</mat-label>
+          <input matInput maxlength="15" inputmode="" placeholder="Type author name" formControlName="author" #nameInput>
+      </mat-form-field>
+    </div>
+    <div class="container">
+     
+                <mat-label>Mode</mat-label>
+           
+                <mat-radio-button value="online">Online</mat-radio-button>
+                <mat-radio-button value="offline">offline</mat-radio-button>
+          
+        </div>
+        <div class="container">
+          <mat-form-field appearance="fill">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker">
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+         </mat-form-field>
+        </div>
+        <div class="container">
+          <mat-form-field appearance="fill">
+          <mat-label>State</mat-label>
+          <mat-select placeholder="Select">
+            <mat-option value="option">Punjab</mat-option>
+            <mat-option value="option">Rajasthan</mat-option>
+            <mat-option value="option">Maharashtra</mat-option>
+            <mat-option value="option">Karnataka</mat-option>
+          </mat-select>
+        </mat-form-field>
+        </div>
+        <div class="container">
+          <mat-form-field appearance="fill">
+          <mat-label>Phone Number:</mat-label>
+          <input matInput type="number" placeholder="Your Phone">
+          <mat-icon matSuffix>phone</mat-icon>
+       </mat-form-field>
+        </div>
+        <div class="container">
+          <mat-form-field appearance="fill">
+          <mat-label>Pincode:</mat-label>
+          <input matInput type="number" placeholder="Your pincode">
+          <mat-icon matSuffix>phone</mat-icon>
+        </mat-form-field>
+        </div>
+        <div mat-dialog-actions align="start">
+          <button mat-raised-button color="primary" type="submit">
+            <span>submit</span>                
+          </button> 
+        <button mat-raised-button type="button">
+            <span>cancel</span>               
+           </button>
+        </div>
+
