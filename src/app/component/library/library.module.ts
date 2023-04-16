@@ -8,6 +8,8 @@ import { LibraryManagementComponent } from './library-management/library-managem
 import { LibHeaderComponent } from './lib-header/lib-header.component';
 import { LibFooterComponent } from './lib-footer/lib-footer.component';
 import { MatmaterailModule } from 'src/app/matmaterail.module';
+import { RouterModule } from '@angular/router';
+import { libraryRoutes } from './libray.routing';
 
 
 
@@ -24,15 +26,13 @@ import { MatmaterailModule } from 'src/app/matmaterail.module';
   imports: [
     CommonModule,
     MatmaterailModule,
+    RouterModule.forChild(libraryRoutes)
   ],
   exports:[
-    ListbooksComponent,
-    AddbookComponent,
-    ViewbookComponent,
-    EditbookComponent,
+
     LibHeaderComponent,
     LibFooterComponent,
-    LibraryManagementComponent
+
   ]
 })
 export class LibraryModule { }

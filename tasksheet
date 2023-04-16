@@ -1,0 +1,28 @@
+Task 1
+Make footer , forter generic rename and keep it generice folder
+
+
+Task 2
+
+component Recipe
+
+List,add,edit,view, management(Custom header)
+
+In heade u will have common applciation name Libray , Receipe
+
+Receipe madule , routing
+
+Make book/list as deafult view when clicked on Library in header(Main)
+
+Keep Add button in Right in libray sub header same for receipe
+
+
+Adction has header and Edit log for each row
+
+
+view/id
+
+
+
+
+
