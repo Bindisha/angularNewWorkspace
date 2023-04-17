@@ -18,11 +18,11 @@ const ELEMENT_DATA: PeriodicElement[] = [
 
 
 @Component({
-  selector: 'app-listbooks',
-  templateUrl: './listbooks.component.html',
-  styleUrls: ['./listbooks.component.css']
+  selector: 'app-list-receipe',
+  templateUrl: './list-receipe.component.html',
+  styleUrls: ['./list-receipe.component.css']
 })
-export class ListbooksComponent {
+export class ListReceipeComponent {
   displayedColumns: string[] = ['position', 'name', 'author', 'price','action'];
   dataSource = ELEMENT_DATA;
 }

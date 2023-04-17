@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatmaterailModule } from './matmaterail.module';
 import { LibraryModule } from './component/library/library.module';
+import { ReceipeModule } from './component/receipe/receipe.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { LibraryModule } from './component/library/library.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatmaterailModule,
-    LibraryModule
+    LibraryModule,
+    ReceipeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

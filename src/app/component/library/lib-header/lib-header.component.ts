@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./lib-header.component.css']
 })
 export class LibHeaderComponent {
-
+title ="Library"
 }

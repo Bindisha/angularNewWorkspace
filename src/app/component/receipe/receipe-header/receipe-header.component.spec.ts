@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LibFooterComponent } from './lib-footer.component';
+import { ReceipeHeaderComponent } from './receipe-header.component';
 
-describe('LibFooterComponent', () => {
-  let component: LibFooterComponent;
-  let fixture: ComponentFixture<LibFooterComponent>;
+describe('ReceipeHeaderComponent', () => {
+  let component: ReceipeHeaderComponent;
+  let fixture: ComponentFixture<ReceipeHeaderComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LibFooterComponent ]
+      declarations: [ ReceipeHeaderComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(LibFooterComponent);
+    fixture = TestBed.createComponent(ReceipeHeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

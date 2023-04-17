@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./addbook.component.css']
 })
 export class AddbookComponent {
+form: any;
 
 }

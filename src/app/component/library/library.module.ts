@@ -5,11 +5,11 @@ import { AddbookComponent } from './addbook/addbook.component';
 import { ViewbookComponent } from './viewbook/viewbook.component';
 import { EditbookComponent } from './editbook/editbook.component';
 import { LibraryManagementComponent } from './library-management/library-management.component';
-import { LibHeaderComponent } from './lib-header/lib-header.component';
-import { LibFooterComponent } from './lib-footer/lib-footer.component';
 import { MatmaterailModule } from 'src/app/matmaterail.module';
 import { RouterModule } from '@angular/router';
 import { libraryRoutes } from './libray.routing';
+import { HeaderComponent } from '../generic/header/header.component';
+import { LibHeaderComponent } from './lib-header/lib-header.component';
 
 
 
@@ -20,19 +20,12 @@ import { libraryRoutes } from './libray.routing';
     ViewbookComponent,
     EditbookComponent,
     LibraryManagementComponent,
-    LibHeaderComponent,
-    LibFooterComponent
+    LibHeaderComponent
   ],
   imports: [
     CommonModule,
     MatmaterailModule,
     RouterModule.forChild(libraryRoutes)
-  ],
-  exports:[
-
-    LibHeaderComponent,
-    LibFooterComponent,
-
   ]
 })
 export class LibraryModule { }
