@@ -3,10 +3,10 @@
 
     <span class="menu-spacer"></span>
     <div>
-      <a mat-button routerLink="/listReceipe"> Receipe </a>
-      <a mat-button routerLink="/addReceipe"> Add </a>
-      <a mat-button routerLink="'/contacts'"> Edit </a>
-      <a mat-button routerLink="'/create-contact'"> View </a>
+      <a mat-button routerLink="./listReceipe" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}"> Receipe </a>
+      <a mat-button routerLink="./addReceipe" routerLinkActive="active-link" > Add </a>
+      <a mat-button routerLink="'/contacts'" routerLinkActive="active"> Edit </a>
+      <a mat-button routerLink="'/create-contact'" routerLinkActive="active"> View </a>
       <button mat-raised-button style="margin-left: 80em;"> ADD </button>
 
     </div>
