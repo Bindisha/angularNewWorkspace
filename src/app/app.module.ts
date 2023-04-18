@@ -7,10 +7,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatmaterailModule } from './matmaterail.module';
 import { LibraryModule } from './component/library/library.module';
 import { ReceipeModule } from './component/receipe/receipe.module';
+import { HomeComponent } from './component/home/home.component';
+import { AboutusComponent } from './component/aboutus/aboutus.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    AboutusComponent
   ],
   imports: [
     BrowserModule,

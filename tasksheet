@@ -22,16 +22,19 @@ Adction has header and Edit log for each row  - Done
 
 Task 3
 
-Home component , contact Us
+Home component , contact Us- Done
 
 
-View/:id
+View/:id  --Done
 
-Absoultepath, relative path
-routerLink
+Absoultepath  - Done
+relative path - Task
+routerLink  - Done
 routerLinkActive
-navigate
+navigate - done
 navigate by url
+
+edit/:id/edit
 query param
 Query segment
 fragments

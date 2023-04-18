@@ -9,11 +9,11 @@ export interface PeriodicElement {
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'War and Women', author: "Dr. MA Hasan", price: 500.00,action:":"},
-  {position: 2, name: 'Mundaka Upanishad', author: "Dr. Karan Singh ", price: 1200,action:":"},
-  {position: 3, name: 'Braving A Viral Storm', author: "Mansukh Mandaviya", price: 800,action:":"},
-  {position: 4, name: 'Revolutionaries', author: "Amit Shah", price: 1000,action:":"},
-  {position: 5, name: 'Statistical Tables', author:"RBI", price: 2000,action:":"}
+  {position: 1, name: 'War and Women', author: "Dr. MA Hasan", price: 500.00,action:""},
+  {position: 2, name: 'Mundaka Upanishad', author: "Dr. Karan Singh ", price: 1200,action:""},
+  {position: 3, name: 'Braving A Viral Storm', author: "Mansukh Mandaviya", price: 800,action:""},
+  {position: 4, name: 'Revolutionaries', author: "Amit Shah", price: 1000,action:""},
+  {position: 5, name: 'Statistical Tables', author:"RBI", price: 2000,action:""}
   ];
 
 
