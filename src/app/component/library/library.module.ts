@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 import { libraryRoutes } from './libray.routing';
 import { HeaderComponent } from '../generic/header/header.component';
 import { LibHeaderComponent } from './lib-header/lib-header.component';
+import { DeletebookComponent } from './deletebook/deletebook.component';
 
 
 
@@ -20,7 +21,8 @@ import { LibHeaderComponent } from './lib-header/lib-header.component';
     ViewbookComponent,
     EditbookComponent,
     LibraryManagementComponent,
-    LibHeaderComponent
+    LibHeaderComponent,
+    DeletebookComponent
   ],
   imports: [
     CommonModule,

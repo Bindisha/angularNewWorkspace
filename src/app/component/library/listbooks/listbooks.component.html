@@ -43,11 +43,11 @@
           <mat-icon>voicemail</mat-icon>
           <span>View Click</span>
         </button>
-        <button mat-menu-item>
+        <button mat-menu-item [routerLink]="['../edit',element.position,'editBooks']">
           <!-- <mat-icon>voicemail</mat-icon> -->
           <span>Edit</span>
         </button>
-        <button mat-menu-item>
+        <button mat-menu-item (click)="navigateToDel(element.position,element.name)">
           <!-- <mat-icon>notifications_off</mat-icon> -->
           <span>Delete</span>
         </button>

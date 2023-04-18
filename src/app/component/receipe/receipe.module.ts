@@ -9,6 +9,8 @@ import { ReceipeManagementComponent } from './receipe-management/receipe-managem
 import { ReceipeHeaderComponent } from './receipe-header/receipe-header.component';
 import { HeaderComponent } from '../generic/header/header.component';
 import { ListReceipeComponent } from './list-receipe/list-receipe.component';
+import { DeletereceipeComponent } from './deletereceipe/deletereceipe.component';
+import { ViewreceipeComponent } from './viewreceipe/viewreceipe.component';
 
 
 
@@ -20,6 +22,8 @@ import { ListReceipeComponent } from './list-receipe/list-receipe.component';
     ReceipeHeaderComponent,
     ListReceipeComponent,
     HeaderComponent,
+    DeletereceipeComponent,
+    ViewreceipeComponent,
   ],
   imports: [
     CommonModule,

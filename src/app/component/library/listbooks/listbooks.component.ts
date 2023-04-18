@@ -36,6 +36,9 @@ export class ListbooksComponent {
   {
     this.router.navigate(['library/view',position]);
   }
-
+  navigateToDel(position:number,name:string)
+  {
+    this.router.navigate(['library/delete',position, name])
+  }
 
 }

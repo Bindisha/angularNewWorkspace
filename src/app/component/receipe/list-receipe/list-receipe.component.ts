@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import { Router } from '@angular/router';
 
 export interface PeriodicElement {
   name: string;
@@ -23,6 +24,14 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./list-receipe.component.css']
 })
 export class ListReceipeComponent {
+
+  constructor(private router:Router){}
+
   displayedColumns: string[] = ['position', 'name', 'author', 'price','action'];
   dataSource = ELEMENT_DATA;
+
+  navigateToEdit(position:number)
+  {
+    this.router.navigate(['receipe/edit',position,'editReceipe'])
+  }
 }

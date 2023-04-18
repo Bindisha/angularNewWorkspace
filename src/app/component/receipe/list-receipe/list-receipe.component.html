@@ -32,22 +32,21 @@
         <td  mat-cell *matCellDef="let element"><button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
             <mat-icon>more_vert</mat-icon>
         </button>{{element.action}}
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item [routerLink]="['../view',element.position]">
+            <mat-icon>voicemail</mat-icon>
+            <span>View</span>
+          </button>
+          <button mat-menu-item (click)="navigateToEdit(element.position)">
+            <!-- <mat-icon>voicemail</mat-icon> -->
+            <span>Edit</span>
+          </button>
+          <button mat-menu-item [routerLink]="['../delete',element.position,element.name]">
+            <!-- <mat-icon>notifications_off</mat-icon> -->
+            <span>Delete</span>
+          </button>
+        </mat-menu>
         </td>
-
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item>
-              <!-- <mat-icon>dialpad</mat-icon> -->
-              <span>Add</span>
-            </button>
-            <button mat-menu-item>
-              <!-- <mat-icon>voicemail</mat-icon> -->
-              <span>Edit</span>
-            </button>
-            <button mat-menu-item>
-              <!-- <mat-icon>notifications_off</mat-icon> -->
-              <span>Delete</span>
-            </button>
-          </mat-menu>
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

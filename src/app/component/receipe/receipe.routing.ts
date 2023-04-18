@@ -4,15 +4,17 @@ import { ReceipeManagementComponent } from './receipe-management/receipe-managem
 import { AddReceipeComponent } from './add-receipe/add-receipe.component';
 import { EditReceipeComponent } from './edit-receipe/edit-receipe.component';
 import { ListReceipeComponent } from './list-receipe/list-receipe.component';
+import { DeletereceipeComponent } from './deletereceipe/deletereceipe.component';
+import { ViewreceipeComponent } from './viewreceipe/viewreceipe.component';
 
 export const receipeRoutes:Routes=[
   {
    path:'', component:ReceipeManagementComponent,
    children:[
      {path:'addReceipe',component:AddReceipeComponent},
-     {path:'view/:id/edit',component:EditReceipeComponent},
-     //{path:'view/:id/:name',component:ViewComponent},
-    //  {path:'view/:id',component:view},
+     {path:'edit/:id/editReceipe',component:EditReceipeComponent},
+     {path:'delete/:id/:name',component:DeletereceipeComponent},
+     {path:'view/:id',component:ViewreceipeComponent},
      {path:'listReceipe',component:ListReceipeComponent}
    ]
   }
