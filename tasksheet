@@ -32,9 +32,11 @@ relative path - Task
 routerLink  - Done
 routerLinkActive
 navigate - done
-navigate by url
+navigate by url  - Task ?
+edit/:id/edit - Task ?
 
-edit/:id/edit
+
+
 query param
 Query segment
 fragments
