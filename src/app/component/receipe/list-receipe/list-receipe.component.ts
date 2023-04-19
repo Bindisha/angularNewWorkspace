@@ -33,5 +33,7 @@ export class ListReceipeComponent {
   navigateToEdit(position:number)
   {
     this.router.navigate(['receipe/edit',position,'editReceipe'])
+    // this.router.navigateByUrl('./receipe/edit',position,'editReceipe');
+
   }
 }
