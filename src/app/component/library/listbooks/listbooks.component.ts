@@ -1,5 +1,7 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
+import { Library } from 'src/app/entity/library';
+import { HttpsGenericService } from 'src/app/service/https-service.service';
 
 export interface PeriodicElement {
   name: string;
@@ -9,12 +11,12 @@ export interface PeriodicElement {
   action: string;
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'War and Women', author: "Dr. MA Hasan", price: 500.00,action:""},
-  {position: 2, name: 'Mundaka Upanishad', author: "Dr. Karan Singh ", price: 1200,action:""},
-  {position: 3, name: 'Braving A Viral Storm', author: "Mansukh Mandaviya", price: 800,action:""},
-  {position: 4, name: 'Revolutionaries', author: "Amit Shah", price: 1000,action:""},
-  {position: 5, name: 'Statistical Tables', author:"RBI", price: 2000,action:""}
+const ELEMENT_DATA: Library[] = [
+  {"id":101,"title":"Life of Sachin","category":"horror","author":"sachin","year":2022,"price":230},
+  {"id":102,"title":"Life of Alex","category":"horror","author":"alex","year":2022,"price":230.45},
+  {"id":103,"title":"Life","category":"horror","author":"bran","year":2022,"price":250},
+  {"id":104,"title":"Life of Victor","category":"horror","author":"victor","year":2022,"price":211},
+  {"id":105,"title":"Life of Sachin","category":"horror","author":"sachin","year":2022,"price":210.34}
   ];
 
 
@@ -23,13 +25,20 @@ const ELEMENT_DATA: PeriodicElement[] = [
   templateUrl: './listbooks.component.html',
   styleUrls: ['./listbooks.component.css']
 })
-export class ListbooksComponent {
+export class ListbooksComponent implements OnInit{
 
 
-  constructor(private router:Router){}
+  constructor(private router:Router,private httpService: HttpsGenericService){}
+  dataSource:Library[] = [];
+  ngOnInit(): void {
 
-  displayedColumns: string[] = ['position', 'name', 'author', 'price','action'];
-  dataSource = ELEMENT_DATA;
+    this.httpService.getListofBooks().subscribe(data=>{
+      this.dataSource=data;
+    })
+  }
+
+  displayedColumns: string[] = ['id', 'title', 'author', 'price','action'];
+
 
 
   navigateTo(position:number)

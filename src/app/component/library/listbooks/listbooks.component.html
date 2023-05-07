@@ -4,15 +4,15 @@
           The actual rendered columns are set as a property on the row definition" -->
 
     <!-- Position Column -->
-    <ng-container matColumnDef="position">
+    <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef> No. </th>
-      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
     </ng-container>
 
     <!-- Name Column -->
-    <ng-container matColumnDef="name">
+    <ng-container matColumnDef="title">
       <th mat-header-cell *matHeaderCellDef> Name </th>
-      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.title}} </td>
     </ng-container>
 
     <!-- author Column -->
@@ -34,12 +34,12 @@
       </button>{{element.action}}
       <mat-menu #menu="matMenu">
         <button mat-menu-item
-        [routerLink]="['../view',element.position]">
+        [routerLink]="['../view',element.id]">
           <mat-icon>voicemail</mat-icon>
           <span>View</span>
         </button>
         <button mat-menu-item
-        (click)="navigateTo(element.position)">
+        (click)="navigateTo(element.id)">
           <mat-icon>voicemail</mat-icon>
           <span>View Click</span>
         </button>

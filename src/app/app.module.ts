@@ -9,6 +9,7 @@ import { LibraryModule } from './component/library/library.module';
 import { ReceipeModule } from './component/receipe/receipe.module';
 import { HomeComponent } from './component/home/home.component';
 import { AboutusComponent } from './component/aboutus/aboutus.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AboutusComponent } from './component/aboutus/aboutus.component';
     BrowserAnimationsModule,
     MatmaterailModule,
     LibraryModule,
-    ReceipeModule
+    ReceipeModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
