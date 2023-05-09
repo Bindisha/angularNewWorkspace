@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { HttpsServiceService } from './https-service.service';
+import { HttpsGenericService } from './https-service.service';
 
 describe('HttpsServiceService', () => {
-  let service: HttpsServiceService;
+  let service: HttpsGenericService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(HttpsServiceService);
+    service = TestBed.inject(HttpsGenericService);
   });
 
   it('should be created', () => {

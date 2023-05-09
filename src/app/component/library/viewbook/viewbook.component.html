@@ -1,1 +1,39 @@
-<p>viewbook works!</p>
+<!-- <p>{{dataSource | json}}</p> -->
+<button class="btn-primary" (click)="back()">BACK</button>
+<table>
+  <!-- Position Column -->
+ <tr>
+    <th  >No.</th>
+    <td  >{{ dataSource.id}}</td>
+ </tr>
+
+  <!-- Name Column -->
+  <tr>
+    <th  >Name</th>
+    <td  >{{ dataSource.title}}</td>
+ 
+</tr>
+<tr>
+    <th  >Category</th>
+    <td  >{{ dataSource.category}}</td>
+
+</tr>
+  <!-- Weight Column -->
+  <tr>
+    <th  >Author</th>
+    <td  >{{ dataSource.author}}</td>
+</tr>
+<tr>
+    <th  >Year</th>
+    <td  >{{ dataSource.year}}</td>
+
+</tr>
+<tr>
+    <th  >Price</th>
+    <td  >{{ dataSource.price}}</td>
+
+</tr>
+
+  </table>
+  
+  

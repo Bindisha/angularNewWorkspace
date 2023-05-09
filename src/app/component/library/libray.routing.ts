@@ -13,7 +13,7 @@ export const libraryRoutes:Routes=[
    children:[
      {path:'addBooks',component:AddbookComponent},
      {path:'edit/:id/editBooks',component:EditbookComponent},
-     {path:'delete/:id/:name',component:DeletebookComponent},
+     {path:'listBooks/:id',component:ListbooksComponent},
      {path:'view/:id',component:ViewbookComponent},
      {path:'listBooks',component:ListbooksComponent}
    ]
