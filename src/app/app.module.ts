@@ -9,7 +9,9 @@ import { LibraryModule } from './component/library/library.module';
 import { ReceipeModule } from './component/receipe/receipe.module';
 import { HomeComponent } from './component/home/home.component';
 import { AboutusComponent } from './component/aboutus/aboutus.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpInterceptorService } from './service/http-interceptor.service';
+import { HttpLogInterceptorService } from './service/http-log-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     ReceipeModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS , useClass: HttpInterceptorService , multi :true},
+    {provide: HTTP_INTERCEPTORS , useClass: HttpLogInterceptorService , multi :true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

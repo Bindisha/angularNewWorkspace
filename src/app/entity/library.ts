@@ -6,6 +6,7 @@ export class Library {
   title!:String;
   category!:String;
   author!:String;
+  email!: string;
   year!:number;
   price!:number;
 

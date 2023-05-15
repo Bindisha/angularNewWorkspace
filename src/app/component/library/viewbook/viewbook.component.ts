@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Library } from 'src/app/entity/library';
 import { HttpsGenericService } from 'src/app/service/https-service.service';
 import {Location} from '@angular/common';
+import { LibraryService } from 'src/app/service/library.service';
 
 
 @Component({
@@ -11,15 +12,15 @@ import {Location} from '@angular/common';
   templateUrl: './viewbook.component.html',
   styleUrls: ['./viewbook.component.css']
 })
-export class ViewbookComponent 
+export class ViewbookComponent
 {
-  constructor(private router:Router,private httpService: HttpsGenericService,private activeRoute: ActivatedRoute,private location: Location){}
-  
+  constructor(private router:Router,private httpService: LibraryService,private activeRoute: ActivatedRoute,private location: Location){}
+
    dataSource: Library = new Library;
-   
+
   ngOnInit(): void {
     const id = this.activeRoute.snapshot.params['id']; //taking value from router link
-    this.httpService.viewBookById(id).subscribe(data=>{
+    this.httpService.getBookById(id).subscribe(data=>{
        this.dataSource = data;
     })
   }
@@ -28,4 +29,3 @@ export class ViewbookComponent
   }
   displayedColumns: string[] = ['id', 'title', 'author', 'price'];
 }
- 

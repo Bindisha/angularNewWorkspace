@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Library } from 'src/app/entity/library';
 import { HttpsGenericService } from 'src/app/service/https-service.service';
+import { LibraryService } from 'src/app/service/library.service';
 
 export interface PeriodicElement {
   name: string;
@@ -28,20 +29,34 @@ export interface PeriodicElement {
 export class ListbooksComponent implements OnInit{
 
 
-  constructor(private router:Router,private httpService: HttpsGenericService, private activeRoute: ActivatedRoute){}
+  constructor(private router:Router,private httpService: LibraryService, private activeRoute: ActivatedRoute){}
   dataSource:Library[] = [];
-  deleteMessage=false;  
+  deleteMessage=false;
+  book!: Library;
   ngOnInit(): void {
+    const book  = {
+      "title":"Jerry Men",
+    "category":"Action",
+    "author":"SACHIN",
+      "email":"sachin19927@gmail.com",
+    "year":2023,
+    "price":100.5
+  }
 
-    this.httpService.getListofBooks().subscribe(data=>{
+    this.httpService.getAllBooks().subscribe(data=>{
       this.dataSource=data;
+
+
+      this.httpService.saveBook(book).subscribe(data => {
+        console.log(data);
+      });
 
     })
 
   }
 
-  
-   
+
+
 
   displayedColumns: string[] = ['id', 'title', 'author', 'price','action'];
 
@@ -55,14 +70,14 @@ export class ListbooksComponent implements OnInit{
   {
     //this.router.navigate(['library/listBooks',id])
     if(confirm("Are you sure to delete "+id +" ?")){
-    this.httpService.deleteBook(id).subscribe(()=>{
-      this.deleteMessage=true; 
-      this.httpService.getListofBooks().subscribe(data =>{  
-        this.dataSource =data  
-        }) 
+    this.httpService.deleteBookById(id).subscribe(()=>{
+      this.deleteMessage=true;
+      this.httpService.getAllBooks().subscribe(data =>{
+        this.dataSource =data
+        })
     })
     }
-    
+
   }
 
 }

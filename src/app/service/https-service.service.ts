@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Library } from '../entity/library';
@@ -10,17 +10,36 @@ export class HttpsGenericService {
 
   constructor(private httpCalls: HttpClient) { }
 
-  getListofBooks(): Observable<any> {
+  httpHeader = new HttpHeaders({
+    'Content-Type':'application/json',
+    'Auth' : 'Test'
+  })
 
-    return this.httpCalls.get('http://localhost:8080/api/v1/library');
+  getAllDetails(url:string): Observable<any> {
+    return this.httpCalls.get(url,{headers:this.httpHeader});
   }
 
-  viewBookById(id:number): Observable<any> {  
-    return this.httpCalls.get(`${'http://localhost:8080/api/v1/library'}/${id}`);  
+  getAllDetailsByParams(url:string,getParams:HttpParams): Observable<any> {
+    return this.httpCalls.get(url,{headers:this.httpHeader,params:getParams});
   }
-   
-  deleteBook(id: number): Observable<any> {  
-    return this.httpCalls.delete(`${'http://localhost:8080/api/v1/library'}/${id}`);  
-  }  
+
+
+
+
+  saveData(url:string,body:any): Observable<any> {
+    return this.httpCalls.post(url,body,{headers:this.httpHeader});
+  }
+
+  getById(url:string,id:number): Observable<any> {
+    return this.httpCalls.get(url+'/'+id,{headers:this.httpHeader});
+  }
+
+  deleteById(url:string,id:number): Observable<any> {
+    return this.httpCalls.delete(url+'/'+id,{headers:this.httpHeader});
+  }
+
+  updateData(url:string,body:any,id:number): Observable<any> {
+    return this.httpCalls.put(url+'/'+id,body,{headers:this.httpHeader});
+  }
 
 }
