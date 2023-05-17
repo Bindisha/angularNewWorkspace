@@ -1,9 +1,14 @@
 <form [formGroup]="myReactiveForm" (ngSubmit)="onSubmit()">
 
+  <button type="button" (click)="setValue()">Suggest Book</button>
+    <button type="button" (click)="patchValue()">Suggest Book</button>
   <div>
     <label for="name">Name:</label>
     <input type="text" id="name" formControlName="title"  >
-    <span *ngIf="!myReactiveForm.get('title')!.valid && myReactiveForm.get('title')!.touched">Enter Valid Name</span>
+    <span *ngIf="!myReactiveForm.get('title')!.valid && myReactiveForm.get('title')!.touched">
+    <span *ngIf="myReactiveForm.get('title')!.errors!['nameIsForbidden']">Title nameIsForbidden</span>
+    <span *ngIf="myReactiveForm.get('title')!.errors!['required']">Title Required</span>
+    </span>
   </div>
 
   <div>
@@ -14,9 +19,38 @@
 
   <div *ngFor="let gender of genders">
     <label>{{gender}}
-      <input type="radio" name="gender"  [value]="gender" formControlName="gender"/>
+      <input type="radio"  [value]="gender" formControlName="gender"/>
     </label>
   </div>
+
+  <div formGroupName="metaData">
+  <div>
+    <label for="category">Select Category:</label>
+    <select id="category"  formControlName="category" >
+      <option value="Action">Action</option>
+      <option value="Horror">Horror</option>
+      <option value="Comedy ">Comedy</option>
+    </select>
+    <p  *ngIf="!myReactiveForm.get('metaData.category')!.valid && myReactiveForm.get('metaData.category')!.touched">please select Category</p>
+  </div>
+  <div>
+    <label for="comments">comments:</label>
+    <textarea formControlName="comments" rows="5" ></textarea>
+    <p  *ngIf="!myReactiveForm.get('metaData.comments')!.valid && myReactiveForm.get('metaData.comments')!.touched">please select Category</p>
+  </div>
+</div>
+
+<div formArrayName="hobbies">
+<h4>
+  <!-- Arrays of Form Controls -->
+  <button type="button" (click)="onAddHobby()">Add Hobby</button>
+  <div *ngFor="let hobbiControl of myArrayControls; let i=index">
+    <input type="text"  [formControlName]="i"/>
+  </div>
+
+</h4>
+
+</div>
 
   <div>
     <span *ngIf="!myReactiveForm.valid && myReactiveForm.touched">Enter All Mandatory details</span>

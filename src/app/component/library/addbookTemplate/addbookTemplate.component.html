@@ -1,59 +1,50 @@
 <form #myForm="ngForm" (ngSubmit)="onSubmit()">
-<!--<form #myForm="ngForm" (ngSubmit)="onSubmitNgForm(myForm)"> -->
-<!--  <form #myForm (ngSubmit)="onSubmitLocalElementRef(myForm)">-->
-  <!--Local Ref #f-->
- <div ngModelGroup="libData" #libData="ngModelGroup">
- <div>
-    <label for="name">Name:</label>
-    <input type="text" id="name"  ngModel name="title" required #title="ngModel" >
-    <span *ngIf="!title.valid && title.touched">please enter valid title</span>
+  <!--<form #myForm="ngForm" (ngSubmit)="onSubmitNgForm(myForm)"> -->
+  <!--  <form #myForm (ngSubmit)="onSubmitLocalElementRef(myForm)">-->
+    <!--Local Ref #f-->
+   <div ngModelGroup="libData" #libData="ngModelGroup">
+   <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name"  ngModel name="title" required #title="ngModel" >
+      <span *ngIf="!title.valid && title.touched">please enter valid title</span>
+    </div>
+
+    <button type="button" (click)="suggestBook()">Suggest Book</button>
+    <button type="button" (click)="patchBook()">Suggest Book</button>
+
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email"  ngModel name="email" required email #email="ngModel">
+      <p  *ngIf="!email.valid && email.touched">please enter valid Email</p>
+    </div>
+
+    <div *ngFor="let gender of genders">
+      <label>{{gender}}
+        <input type="radio" name="gender" ngModel [value]="gender"/>
+      </label>
+    </div>
+
+    <div>
+      <label for="category">Select Category:</label>
+      <select id="category"  [ngModel]="defaultSelect" name="category" required #catgory="ngModel">
+        <option value="Action">Action</option>
+        <option value="Horror">Horror</option>
+        <option value="Comedy ">Comedy</option>
+      </select>
+      <p  *ngIf="!catgory.valid && catgory.touched">please select Category</p>
+    </div>
+
+    <div>
+      <label for="comments">comments:</label>
+      <textarea name="comments" rows="5" [(ngModel)]="bookComments" ></textarea>
+  {{bookComments}}
+
+    </div>
+    <span *ngIf="!libData.valid && libData.touched">please Lib Data invlaid
+
+    </span>
+    <button type="submit" [disabled]="!myForm.valid">Submit</button>
   </div>
 
-  <button (click)="SetInitialBook()">Suggest Book</button>
-
-  <div>
-    <label for="email">Email:</label>
-    <input type="email" id="email"  ngModel name="email" required email #email="ngModel">
-    <p  *ngIf="!email.valid && email.touched">please enter valid Email</p>
-  </div>
-
-  <div *ngFor="let gender of genders">
-    <label>{{gender}}
-      <input type="radio" name="gender" ngModel [value]="gender"/>
-    </label>
-  </div>
-
-  <!-- <div>
-    <label for="category">Select Category:</label>
-    <select id="category"  ngModel name="category" required #catgory="ngModel">
-      <option value="Action">Action</option>
-      <option value="Horror">Horror</option>
-      <option value="Comedy ">Comedy</option>
-    </select>
-    <p  *ngIf="!catgory.valid && catgory.touched">please select Category</p>
-  </div> -->
-
-  <div>
-    <label for="category">Select Category:</label>
-    <select id="category"  [ngModel]="defaultCategory" name="category" required #catgory="ngModel">
-      <option value="Action">Action</option>
-      <option value="Horror">Horror</option>
-      <option value="Comedy ">Comedy</option>
-    </select>
-    <p  *ngIf="!catgory.valid && catgory.touched">please select Category</p>
-  </div>
-
-  <div>
-    <label for="comments">comments:</label>
-    <textarea name="comments" rows="5" [(ngModel)]="bookComments" ></textarea>
-{{bookComments}}
-
-  </div>
-  <span *ngIf="!libData.valid && libData.touched">please Lib Data invlaid
-
-  </span>
-  <button type="submit" [disabled]="!myForm.valid">Submit</button>
-</div>
-
-</form>
-{{bookData | json}}
+  </form>
+  {{library | json}}
