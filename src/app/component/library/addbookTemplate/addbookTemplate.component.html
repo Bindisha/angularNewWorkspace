@@ -9,7 +9,7 @@
     <span *ngIf="!title.valid && title.touched">please enter valid title</span>
   </div>
 
-  <button (click)="suggestBook()">Suggest Book</button>
+  <button (click)="SetInitialBook()">Suggest Book</button>
 
   <div>
     <label for="email">Email:</label>
@@ -35,7 +35,7 @@
 
   <div>
     <label for="category">Select Category:</label>
-    <select id="category"  [ngModel]="defaultSelect" name="category" required #catgory="ngModel">
+    <select id="category"  [ngModel]="defaultCategory" name="category" required #catgory="ngModel">
       <option value="Action">Action</option>
       <option value="Horror">Horror</option>
       <option value="Comedy ">Comedy</option>
@@ -56,4 +56,4 @@
 </div>
 
 </form>
-{{library | json}}
+{{bookData | json}}

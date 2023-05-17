@@ -13,7 +13,7 @@ import { LibHeaderComponent } from './lib-header/lib-header.component';
 import { DeletebookComponent } from './deletebook/deletebook.component';
 import { AddbookReactiveComponent } from './addbookReactive/addbookReactive.component';
 import { AddbookComponent } from './addbook/addbook.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -32,6 +32,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     MatmaterailModule,
     RouterModule.forChild(libraryRoutes)
   ]
