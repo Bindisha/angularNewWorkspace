@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { interval,Subscription,Observable } from 'rxjs';
+import { interval,Subscription,Observable, Observer } from 'rxjs';
 import { map,filter } from 'rxjs/operators';
 
 @Component({
@@ -11,19 +11,21 @@ export class AboutusComponent implements OnInit, OnDestroy {
 
   private existingSubscription!: Subscription;
   private customObservableSubscription!: Subscription;
+  private testSubscription!:Subscription;
 
   ngOnInit(): void {
 
     //this.callExistingObservable();
-    this.customOBserverCall();
-
+   // this.customOBserverCall();
+    this.testCall();
 
 
   }
 
   ngOnDestroy(): void {
     //this.existingSubscription.unsubscribe();
-    this.customObservableSubscription.unsubscribe();
+   // this.customObservableSubscription.unsubscribe();
+    this.testSubscription.unsubscribe();
   }
 
 
@@ -88,7 +90,37 @@ export class AboutusComponent implements OnInit, OnDestroy {
 
   }
 
+testCall(){
+  const testcustomObservable= new Observable(observer => {
+  setInterval(
+    () => {
+      observer.next(Math.floor(Math.random() * 10));
+    }, 1000);
+
+});
 
 
+this.testSubscription=  testcustomObservable
+.pipe(
+filter((data:any)=>{
+  return data<15;
+}),
+map((data:number)=>{
+return 'Record : '+ data;
+}
+)
 
+)
+.subscribe({
+  next: data=>{
+    console.log(data);
+  },
+  error: err => {
+    console.log('Custom Error');
+  },
+  complete: ()=>{
+    console.log('Completed')
+  }
+});
+}
 }

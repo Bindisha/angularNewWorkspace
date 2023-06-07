@@ -1,28 +1,29 @@
+<form #myForm="ngForm" class="example-form" (ngSubmit)="onSubmitReceipe()">
+  <div ngModelGroup="recData" #recData="ngModelGroup">
 <div class="container">
   <mat-form-field appearance="fill">
             <mat-label>Book Name</mat-label>
-            <input matInput maxlength="15" inputmode="tel" placeholder="Type name" formControlName="name" #nameInput>
+            <input matInput maxlength="15" inputmode="tel" placeholder="Type name" name="name" ngModel #name="ngModel">
 
   </mat-form-field>
        </div>
-       <div class="container">
+        <div class="container">
         <mat-form-field appearance="fill">
           <mat-label>Author Name</mat-label>
-          <input matInput maxlength="15" inputmode="" placeholder="Type author name" formControlName="author" #nameInput>
+          <input matInput maxlength="15" inputmode="" placeholder="Type author name" name="author" ngModel #author="ngModel">
       </mat-form-field>
     </div>
-    <div class="container">
+    <div class="container" *ngFor="let modes of mode">
 
-                <mat-label>Mode</mat-label>
+                <mat-label>{{modes}}
 
-                <mat-radio-button value="online">Online</mat-radio-button>
-                <mat-radio-button value="offline">offline</mat-radio-button>
-
+                <input type="radio" name="mode" ngModel [value]="modes">
+              </mat-label>
         </div>
         <div class="container">
           <mat-form-field appearance="fill">
             <mat-label>Choose a date</mat-label>
-            <input matInput [matDatepicker]="picker">
+            <input matInput [matDatepicker]="picker" name="datepicker" ngModel #datepicker="ngModel">
             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
          </mat-form-field>
@@ -30,25 +31,26 @@
         <div class="container">
           <mat-form-field appearance="fill">
           <mat-label>State</mat-label>
-          <mat-select placeholder="Select">
-            <mat-option value="option">Punjab</mat-option>
-            <mat-option value="option">Rajasthan</mat-option>
-            <mat-option value="option">Maharashtra</mat-option>
-            <mat-option value="option">Karnataka</mat-option>
+          <mat-select placeholder="Select" [ngModel]="defaultSelect" name="state" required #state="ngModel">
+            <mat-option value="Punjab">Punjab</mat-option>
+            <mat-option value="Rajasthan">Rajasthan</mat-option>
+            <mat-option value="Maharashtra">Maharashtra</mat-option>
+            <mat-option value="Karnataka">Karnataka</mat-option>
           </mat-select>
         </mat-form-field>
         </div>
         <div class="container">
-          <mat-form-field appearance="fill">
+          <mat-form-field appearance="fill" >
           <mat-label>Phone Number:</mat-label>
-          <input matInput type="number" placeholder="Your Phone">
+          <input matInput type="number" placeholder="Your Phone" ngModel name="phone" #phone="ngModel">
           <mat-icon matSuffix>phone</mat-icon>
        </mat-form-field>
         </div>
         <div class="container">
           <mat-form-field appearance="fill">
           <mat-label>Pincode:</mat-label>
-          <input matInput type="number" placeholder="Your pincode">
+          <input matInput type="number" placeholder="Your Phone" ngModel name="pincode" #pincode="ngModel">
+          <input matInput type="number" placeholder="Your pincode" >
           <mat-icon matSuffix>phone</mat-icon>
         </mat-form-field>
         </div>
@@ -60,5 +62,7 @@
         <button mat-raised-button type="button">
             <span>cancel</span>
            </button>
-        </div>
 
+        </div>
+      </div>
+      </form>

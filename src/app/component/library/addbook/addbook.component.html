@@ -1,63 +1,94 @@
-<div class="container">
-  <mat-form-field appearance="fill">
-            <mat-label>Book Name</mat-label>
-            <input matInput maxlength="15" inputmode="tel" placeholder="Type name" formControlName="name" #nameInput>
-
-  </mat-form-field>
-       </div>
-       <div class="container">
-        <mat-form-field appearance="fill">
-          <mat-label>Author Name</mat-label>
-          <input matInput maxlength="15" inputmode="" placeholder="Type author name" formControlName="author" #nameInput>
-      </mat-form-field>
+ <div class="container">
+  <div class="row">
+    <div class="col col-md-8" style="overflow-y: scroll; max-height: 100vh">
+      <form [formGroup]="libForm" (ngSubmit)="save()">
+        <div class="mb-3">
+          <label for="firstName" class="form-label">First Name</label>
+          <input  type="text" class="form-control"  id="firstName" formControlName="firstName"/>
+          <span *ngIf="!libForm.get('firstName')!.valid && libForm.get('firstName')!.touched">
+           Enter valid Name </span>
+        </div>
+        <div class="mb-3">
+          <label for="lastName" class="form-label">Last Name</label>
+          <input type="text" class="form-control" id="lastName" formControlName="lastName"/>
+          <span *ngIf="!libForm.get('lastName')!.valid && libForm.get('lastName')!.touched">
+            Enter valid Last Name </span>
+        </div>
+        <div class="mb-3" formGroupName="contacts">
+          <div class="row">
+            <div class="col col-md-4 offset-md-4">
+              <div class="mb-3">
+                <label class="form-label">Prefered Contact</label>
+                <select class="form-select" formControlName="contactType" aria-label="Default select example">
+                  <option value="-1" selected>-select-</option>
+                  <option value="email">Email</option>
+                  <option value="phone">Phone</option>
+                </select>
+                <p *ngIf="!libForm.get('contacts.contactType')!.valid && libForm.get('contacts.contactType')!.touched"> Enter valid Contact</p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col col-md-6">
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input  type="email"  class="form-control" id="email" formControlName="email"/>
+                <span *ngIf="!libForm.get('contacts.email')!.valid && libForm.get('contacts.email')!.touched">
+                  Enter valid Email </span>
+              </div>
+            </div>
+            <div class="col col-md-6">
+              <div class="mb-3">
+                <label for="phone" class="form-label">Phone</label>
+                <input type="text" class="form-control" id="phone" formControlName="phone"/>
+                <span *ngIf="!libForm.get('contacts.phone')!.valid && libForm.get('contacts.phone')!.touched">
+                  Enter valid Phone number </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mb-3" formArrayName="booklist">
+          <div class="row">
+            <div class="col col-md-4 offset-md-4">
+              <button type="button" (click)="addBookFormGroup()" class="btn btn-primary">
+                Add A Book
+              </button>
+            </div>
+          </div>
+          <ng-container *ngFor="let books of myBooksArrayControls; let i = index">
+            <div class="row" [formGroupName]="i">
+              <div class="col col-md-5">
+                <div class="mb-3">
+                  <label [for]="'book name' + i" class="form-label"
+                    >Book Name</label
+                  >
+                  <input type="text" class="form-control" [id]="'bookName' + i" formControlName="bookName"/>
+                </div>
+              </div>
+              <div class="col col-md-5">
+                <div class="mb-3">
+                  <label [for]="'price' + i" class="form-label">Price</label>
+                  <input type="text" class="form-control" [id]="'price' + i" formControlName="price"/>
+                </div>
+              </div>
+              <!-- <div class="col col md-2">
+                <button
+                  class="btn btn-danger mt-4"
+                  type="button"
+                  (click)="removeSkillFormGroup(i)"
+                >
+                  Delete
+                </button>
+              </div> -->
+            </div>
+          </ng-container>
+        </div>
+        <div>
+          <span *ngIf="!libForm.valid && libForm.touched">Enter All Mandatory details</span>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
     </div>
-    <div class="container">
 
-                <mat-label>Mode</mat-label>
-
-                <mat-radio-button value="online">Online</mat-radio-button>
-                <mat-radio-button value="offline">offline</mat-radio-button>
-
-        </div>
-        <div class="container">
-          <mat-form-field appearance="fill">
-            <mat-label>Choose a date</mat-label>
-            <input matInput [matDatepicker]="picker">
-            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-         </mat-form-field>
-        </div>
-        <div class="container">
-          <mat-form-field appearance="fill">
-          <mat-label>State</mat-label>
-          <mat-select placeholder="Select">
-            <mat-option value="option">Punjab</mat-option>
-            <mat-option value="option">Rajasthan</mat-option>
-            <mat-option value="option">Maharashtra</mat-option>
-            <mat-option value="option">Karnataka</mat-option>
-          </mat-select>
-        </mat-form-field>
-        </div>
-        <div class="container">
-          <mat-form-field appearance="fill">
-          <mat-label>Phone Number:</mat-label>
-          <input matInput type="number" placeholder="Your Phone">
-          <mat-icon matSuffix>phone</mat-icon>
-       </mat-form-field>
-        </div>
-        <div class="container">
-          <mat-form-field appearance="fill">
-          <mat-label>Pincode:</mat-label>
-          <input matInput type="number" placeholder="Your pincode">
-          <mat-icon matSuffix>phone</mat-icon>
-        </mat-form-field>
-        </div>
-        <div mat-dialog-actions align="start">
-          <button mat-raised-button color="primary" type="submit">
-            <span>submit</span>
-          </button>
-        <button mat-raised-button type="button">
-            <span>cancel</span>
-           </button>
-        </div>
-
+  </div>
+</div>

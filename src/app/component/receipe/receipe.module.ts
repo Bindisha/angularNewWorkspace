@@ -11,6 +11,7 @@ import { HeaderComponent } from '../generic/header/header.component';
 import { ListReceipeComponent } from './list-receipe/list-receipe.component';
 import { DeletereceipeComponent } from './deletereceipe/deletereceipe.component';
 import { ViewreceipeComponent } from './viewreceipe/viewreceipe.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -28,6 +29,7 @@ import { ViewreceipeComponent } from './viewreceipe/viewreceipe.component';
   imports: [
     CommonModule,
     MatmaterailModule,
+    FormsModule,
     RouterModule.forChild(receipeRoutes)
   ],
   exports:[
